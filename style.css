@@ -1,6 +1,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
 /* 
 *{
 
@@ -16,4 +20,271 @@ font-family: "Poppins", serif;
 h2,
 h3{
      font-family: "kaushan script", serif; 
+}
+
+/* ============ ANIMATIONS ============ */
+
+/* Fade-in animation for sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Skill bar fill animation */
+@keyframes fillBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Scale and hover effect */
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Slide in from left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+  }
+}
+
+/* ============ ELEMENT CLASSES ============ */
+
+/* Fade in section on scroll or load */
+.fade-in-section,
+.section-transition {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.transition-card,
+.service-card,
+.project-card,
+.blog-card,
+.skill-item,
+.contact-card {
+  transition: all 0.3s ease;
+}
+
+.transition-card:hover,
+.service-card:hover,
+.project-card:hover,
+.blog-card:hover,
+.skill-item:hover,
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+.contact-card {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+}
+
+.contact-card input,
+.contact-card textarea,
+.contact-card a {
+  transition: all 0.3s ease;
+}
+
+.contact-card input:focus,
+.contact-card textarea:focus,
+.contact-card a:hover {
+  transform: translateY(-2px);
+}
+
+/* Service card hover effect */
+.service-card {
+  transition: all 0.3s ease;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background-color: #fef3c7;
+}
+
+.service-card i {
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover i {
+  transform: scale(1.2) rotate(10deg);
+}
+
+/* Project card animation */
+.project-card {
+  display: inline-block;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.project-card img {
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Blog card styling */
+.blog-card {
+  animation: scaleIn 0.5s ease-out;
+  transition: all 0.3s ease;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.blog-card:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.blog-card img {
+  transition: transform 0.3s ease;
+  border-radius: 0.5rem;
+}
+
+.blog-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Skill bar animation */
+.skill-item {
+  animation: slideInLeft 0.6s ease-out;
+  transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: translateX(5px);
+}
+
+.skill-bar {
+  transition: width 0.3s ease;
+}
+
+.skill-item:hover .skill-bar {
+  filter: brightness(1.1);
+}
+
+/* Hover lift effect */
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Button animations */
+button {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Navigation link animations */
+nav a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #2563eb;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Form input animations */
+input, textarea {
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  transform: scale(1.02);
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.3));
+}
+
+/* Stagger animation for multiple elements */
+.blog-items .blog-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.blog-items .blog-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.blog-items .blog-card:nth-child(3) {
+  animation-delay: 0.3s;
 }
